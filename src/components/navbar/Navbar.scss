@@ -4,6 +4,14 @@
   align-items: center;
   background-color: #013914;
   color: #fff;
+  transition: 0.5s all ease;
+  position: sticky;
+  top: 0;
+
+  &.active {
+    background-color: #fff;
+    color: #000;
+  }
 
   .container {
     width: 1400px;
