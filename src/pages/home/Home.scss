@@ -1,13 +1,100 @@
-.Slides-container {
-  width: 1400px;
-  position: relative;
-  margin: 96px auto;
-  h2 {
-    color: #404145;
-    font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    text-align: start;
-    font-size: 32px;
-    line-height: 120%;
+.home {
+  .Slides-container {
+    width: 1400px;
+    position: relative;
+    margin: 96px auto;
+    h2 {
+      color: #404145;
+      font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      text-align: start;
+      font-size: 32px;
+      line-height: 120%;
+    }
+  }
+
+  .features {
+    background-color: #f1fdf7;
+    display: flex;
+    justify-content: center;
+    padding: 100px 0px;
+
+    .container {
+      width: 1400px;
+      display: flex;
+      align-items: center;
+      gap: 200px;
+      color: #404145;
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        &:first-child {
+          flex: 2;
+        }
+        &:last-child {
+          flex: 3;
+        }
+
+        img {
+          width: 100%;
+        }
+        h2 {
+          font-size: 32px;
+          font-weight: 700;
+          margin-bottom: 10px;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        h6 {
+          font-size: 18px;
+        }
+        .title {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-weight: 500;
+          font-size: 18px;
+          color: #666;
+          svg {
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
+          }
+        }
+        p {
+          font-size: 18px;
+          font-weight: 400;
+          color: #62646a;
+          line-height: 28px;
+          letter-spacing: 1px;
+        }
+
+        video,
+        picture {
+          width: 720px;
+        }
+
+        picture {
+          position: relative;
+          .play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: black;
+            opacity: 0.6;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 40%;
+            left: 45%;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 }
