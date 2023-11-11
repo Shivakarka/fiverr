@@ -19,6 +19,86 @@
     justify-content: center;
     padding: 100px 0px;
 
+    &.dark {
+      background-color: #0d084d;
+
+      h2 {
+        color: white !important;
+      }
+
+      i {
+        font-weight: 300;
+      }
+
+      p {
+        margin-bottom: 20px;
+        color: white !important;
+      }
+
+      .fiverr-title {
+        width: 89px;
+        height: 27px;
+      }
+
+      span {
+        font-size: 24px;
+        font-weight: 300;
+        color: white !important;
+      }
+
+      ul {
+        width: 550px;
+        list-style: none;
+        font-size: 16px;
+        text-align: left;
+
+        li {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+          margin-bottom: 15px;
+
+          b {
+            color: white !important;
+          }
+
+          .features-content {
+            color: white !important;
+            font-size: 18px !important;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            align-items: flex-start !important;
+            text-align: left !important;
+          }
+
+          svg {
+            color: white !important;
+          }
+        }
+      }
+
+      button {
+        box-sizing: border-box;
+        background-color: #fff;
+        border: none;
+        color: #62646a;
+        padding: 12px 24px;
+        border-radius: 4px;
+        width: max-content;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+
+        &:hover {
+          color: #404145;
+        }
+      }
+    }
+
     .container {
       width: 1400px;
       display: flex;
