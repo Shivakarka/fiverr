@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { cards } from "../../../data";
+import { cards, projects } from "../../../data";
 import Slide from "../../components/Slide/Slide";
 import CatCard from "../../components/catCard/CatCard";
 import Featured from "../../components/featured/Featured";
 import TrustedBy from "../../components/trustedBy/TrustedBy";
 import "./Home.scss";
 import { checkSvg, fiverTitle, tickImg } from "../../../svgs";
+import ProjectCard from "../../components/projectCard/ProjectCard";
 
 const Home = () => {
   const [show, setShow] = useState(false);
@@ -70,7 +71,7 @@ const Home = () => {
             ) : (
               <picture>
                 <div className="play-btn">
-                  <i class="fa fa-play" style={{ fontSize: "40px" }}></i>
+                  <i className="fa fa-play" style={{ fontSize: "40px" }}></i>
                 </div>
                 <img
                   src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_700,dpr_1.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png"
@@ -226,6 +227,17 @@ const Home = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="inspiring">
+        <div className="inspiring-title">
+          <h2>Inspiring work made on Fiverr</h2>
+          <a href="#">See more {` >`}</a>
+        </div>
+        <Slide slidesToShow={4} arrowsScroll={4}>
+          {projects.map((card) => (
+            <ProjectCard key={card.id} card={card} />
+          ))}
+        </Slide>
       </div>
     </div>
   );
