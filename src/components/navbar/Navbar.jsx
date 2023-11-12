@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate, NavLink } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 import "./Navbar.scss";
-import { useEffect, useState } from "react";
 
-const Navbar = () => {
+function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const { pathname } = window.location;
+  const { pathname } = useLocation();
 
   const isActive = () => {
-    if (window.scrollY > 0) setActive(true);
-    else setActive(false);
+    window.scrollY > 0 ? setActive(true) : setActive(false);
   };
 
   useEffect(() => {
@@ -20,17 +20,25 @@ const Navbar = () => {
     };
   }, []);
 
-  const currentUser = {
-    id: 1,
-    username: "test",
-    isSeller: true,
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
         <div className="logo">
-          <Link to="/" className="link">
+          <Link className="link" to="/">
             <span className="text">fiverr</span>
           </Link>
           <span className="dot">.</span>
@@ -39,40 +47,46 @@ const Navbar = () => {
           <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
-          <span>Sign In</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
-          {!currentUser && <button>Join</button>}
-          {currentUser && (
+          {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
-              <img
-                src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt=""
-              />
+              <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
               <span>{currentUser?.username}</span>
               {open && (
                 <div className="options">
-                  {currentUser?.isSeller && (
+                  {currentUser.isSeller && (
                     <>
-                      <Link to="/mygigs" className="link">
+                      <Link className="link" to="/mygigs">
                         Gigs
                       </Link>
-                      <Link to="/add" className="link">
+                      <Link className="link" to="/add">
                         Add New Gig
                       </Link>
                     </>
                   )}
-                  <Link to="/orders" className="link">
-                    Orders
-                  </Link>
-                  <Link to="/messages" className="link">
-                    Messages
-                  </Link>
-                  <Link to="/" className="link">
-                    Logout
-                  </Link>
+                  <>
+                    <Link className="link" to="/orders">
+                      Orders
+                    </Link>
+                    <Link className="link" to="/messages">
+                      Messages
+                    </Link>
+                    <a className="link" onClick={handleLogout}>
+                      Logout
+                    </a>
+                  </>
                 </div>
               )}
             </div>
+          ) : (
+            <>
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+              <Link to="/register" className="link">
+                <button>Join</button>
+              </Link>
+            </>
           )}
         </div>
       </div>
@@ -108,10 +122,11 @@ const Navbar = () => {
               Lifestyle
             </Link>
           </div>
+          <hr />
         </>
       )}
     </div>
   );
-};
+}
 
 export default Navbar;
