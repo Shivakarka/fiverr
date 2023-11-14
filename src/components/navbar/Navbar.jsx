@@ -6,6 +6,7 @@ import "./Navbar.scss";
 function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const { pathname } = useLocation();
 
@@ -43,16 +44,17 @@ function Navbar() {
           </Link>
           <span className="dot">.</span>
         </div>
-        <div className="links">
+        <div className={`links ${open ? "open" : ""}`}>
           <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
+
           {currentUser ? (
-            <div className="user" onClick={() => setOpen(!open)}>
+            <div className="user" onClick={() => setOpenMenu(!openMenu)}>
               <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
               <span>{currentUser?.username}</span>
-              {open && (
+              {openMenu && (
                 <div className="options">
                   {currentUser.isSeller && (
                     <>
@@ -88,6 +90,10 @@ function Navbar() {
               </Link>
             </>
           )}
+        </div>
+        <div className="menu-icon" onClick={() => setOpen(!open)}>
+          {/* Adds hamburger icon here */}
+          <span>&#9776;</span>
         </div>
       </div>
       {(active || pathname !== "/") && (

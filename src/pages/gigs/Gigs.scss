@@ -72,6 +72,24 @@
         }
       }
 
+      @media screen and (max-width: 768px) {
+        .left {
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+
+        .right {
+          width: 100%;
+          justify-content: center;
+
+          img {
+            margin-left: 5px;
+          }
+        }
+      }
+
       .right {
         position: relative;
         display: flex;
@@ -89,6 +107,7 @@
 
         img {
           width: 15px;
+          margin-left: 5px;
           cursor: pointer;
         }
 
@@ -130,6 +149,13 @@
           flex: 1 1 calc(100% - 15px);
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 350px;
+      margin: 0 auto;
     }
   }
 }

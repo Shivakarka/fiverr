@@ -23,11 +23,19 @@
     .logo {
       font-size: 34px;
       font-weight: 700;
+      display: flex;
+      align-items: center;
 
       .text {
+        margin-right: 5px;
       }
+
       .dot {
         color: #1dbf73;
+      }
+
+      @media (max-width: 768px) {
+        margin-bottom: 10px;
       }
     }
 
@@ -83,6 +91,28 @@
           border-color: #1dbf73;
         }
       }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        display: none;
+
+        &.open {
+          display: flex;
+        }
+
+        .user {
+          flex-direction: column;
+          align-items: flex-start;
+
+          .options {
+            position: static;
+            width: 100%;
+            margin-top: 10px;
+          }
+        }
+      }
     }
   }
 
@@ -100,5 +130,30 @@
     font-weight: 300;
     color: gray;
     font-family: "Montserrat", sans-serif;
+  }
+
+  .menu-icon {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+      width: 100px;
+    }
+
+    .menu {
+      display: none;
+    }
   }
 }

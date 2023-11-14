@@ -28,6 +28,12 @@
           cursor: pointer;
         }
       }
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
     }
 
     hr {
@@ -85,6 +91,16 @@
             background-color: #ebe9e9;
           }
         }
+
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
       }
     }
   }

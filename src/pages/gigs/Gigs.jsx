@@ -70,8 +70,9 @@ const Gigs = () => {
             <span className="sortBy">Sort by</span>
             <span className="sortType">
               {sort === "sales" ? "Best Selling" : "Newest"}
+              <img src="./img/down.png" alt="" onClick={() => setOpen(!open)} />
             </span>
-            <img src="./img/down.png" alt="" onClick={() => setOpen(!open)} />
+
             {open && (
               <div className="rightMenu">
                 {sort === "sales" ? (
