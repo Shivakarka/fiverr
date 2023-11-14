@@ -1,27 +1,63 @@
 import { useState } from "react";
 import "./Register.scss";
+import newRequest from "../../utils/newRequest";
+import { useNavigate } from "react-router-dom";
+import upload from "../../utils/upload";
 
 const Register = () => {
-  const [user, setUser] = useState({});
   const [file, setFile] = useState(null);
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    img: "",
+    country: "",
+    desc: "",
+    isSeller: false,
+  });
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
+    setError(null);
     setUser((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
 
   const handleSeller = (e) => {
+    setError(null);
     setUser((prev) => {
       return { ...prev, isSeller: e.target.checked };
     });
   };
 
-  const handleSubmit = async (e) => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const url = await upload(file);
+    try {
+      await newRequest.post("/auth/register", { ...user, img: url });
+      navigate("/");
+    } catch (error) {
+      const err = error.response.data;
+      if (err.error.includes("username")) {
+        setError({ error: "Username already exists" });
+      } else if (err.error.includes("email")) {
+        setError({ error: "Email already exists" });
+      } else {
+        setError(err);
+      }
+    }
+  };
 
   return (
     <div className="register">
       <form onSubmit={handleSubmit}>
+        <div className={error ? "err" : "hide"}>
+          {error ? error.error : null}
+        </div>
         <div className="left">
           <h1>Create a new account</h1>
           <label htmlFor="">Username</label>
