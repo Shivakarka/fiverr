@@ -96,9 +96,9 @@ function Gig() {
             <div className="seller">
               <h2>About The Seller</h2>
               <div className="user">
-                <img src={dataUser.img || "/img/noavatar.jpg"} alt="" />
+                <img src={dataUser?.img || "/img/noavatar.jpg"} alt="" />
                 <div className="info">
-                  <span>{dataUser.username}</span>
+                  <span>{dataUser?.username}</span>
                   <div className="stars">
                     {showStar()}
                     <span>
@@ -116,7 +116,7 @@ function Gig() {
                 <div className="items">
                   <div className="item">
                     <span className="title">From</span>
-                    <span className="desc">{dataUser.country}</span>
+                    <span className="desc">{dataUser?.country}</span>
                   </div>
                   <div className="item">
                     <span className="title">Member since</span>
@@ -136,7 +136,7 @@ function Gig() {
                   </div>
                 </div>
                 <hr />
-                <p>{dataUser.desc}</p>
+                <p>{dataUser?.desc}</p>
               </div>
             </div>
             <div className="reviews">
