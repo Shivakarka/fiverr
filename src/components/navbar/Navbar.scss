@@ -78,7 +78,7 @@
         }
       }
 
-      button {
+      .btn {
         color: #fff;
         padding: 10px 20px;
         border-radius: 5px;
@@ -89,6 +89,18 @@
         &:hover {
           background-color: #1dbf73;
           border-color: #1dbf73;
+        }
+      }
+
+      .active-btn {
+        background-color: #1dbf73;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
         }
       }
 

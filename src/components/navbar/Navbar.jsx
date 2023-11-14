@@ -86,7 +86,11 @@ function Navbar() {
                 Sign in
               </Link>
               <Link to="/register" className="link">
-                <button>Join</button>
+                <button
+                  className={active || pathname !== "/" ? "active-btn" : "btn"}
+                >
+                  Join
+                </button>
               </Link>
             </>
           )}
