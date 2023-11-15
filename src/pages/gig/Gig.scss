@@ -326,8 +326,9 @@
         justify-content: space-between;
         font-size: 14px;
 
-        .item {
+        .details-item {
           display: flex;
+          flex-direction: row;
           align-items: center;
           gap: 10px;
 
@@ -338,8 +339,9 @@
       }
 
       .features {
-        .item {
+        .details-item {
           display: flex;
+          flex-direction: row;
           align-items: center;
           gap: 10px;
           font-weight: 300;

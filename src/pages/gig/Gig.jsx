@@ -1,9 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import "./Gig.scss";
 import { Slider } from "infinite-react-carousel/lib";
-import { star, tick } from "../../../svgs";
+import { tick } from "../../../svgs";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
+import Reviews from "../../components/reviews/Reviews";
+import showStar from "../../utils/showStars";
 
 function Gig() {
   const { id } = useParams();
@@ -30,16 +32,6 @@ function Gig() {
       }),
     enabled: !!userId,
   });
-
-  function showStar() {
-    if (Math.round(data.totalStars / data.starNumber)) {
-      return Array(Math.round(data.totalStars / data.starNumber))
-        .fill()
-        .map((item, i) => star);
-    } else {
-      return star;
-    }
-  }
 
   return (
     <div className="gig">
@@ -76,7 +68,7 @@ function Gig() {
                 <div className="user-info">
                   <span>Anna Bell</span>
                   <div className="stars">
-                    {showStar()}
+                    {showStar(data)}
                     <span>
                       {isNaN(Math.round(data.totalStars / data.starNumber))
                         ? 0
@@ -100,7 +92,7 @@ function Gig() {
                 <div className="info">
                   <span>{dataUser?.username}</span>
                   <div className="stars">
-                    {showStar()}
+                    {showStar(data)}
                     <span>
                       {isNaN(Math.round(data.totalStars / data.starNumber))
                         ? 0
@@ -139,142 +131,7 @@ function Gig() {
                 <p>{dataUser?.desc}</p>
               </div>
             </div>
-            <div className="reviews">
-              <h2>Reviews</h2>
-              <div className="item">
-                <div className="user">
-                  <img
-                    className="pp"
-                    src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt=""
-                  />
-                  <div className="info">
-                    <div className="name">
-                      <span>Garner David</span>
-                    </div>
-                    <div className="country">
-                      <img
-                        src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png"
-                        alt=""
-                      />
-                      <span>United States</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="stars">
-                  {star}
-                  {star}
-                  {star}
-                  {star}
-                  {star}
-                  <span>5</span>
-                </div>
-                <p>
-                  I just want to say that art_with_ai was the first, and after
-                  this, the only artist Ill be using on Fiverr. Communication
-                  was amazing, each and every day he sent me images that I was
-                  free to request changes to. They listened, understood, and
-                  delivered above and beyond my expectations. I absolutely
-                  recommend this gig, and know already that Ill be using it
-                  again very very soon
-                </p>
-                <div className="helpful">
-                  <span>Helpful?</span>
-                  <img src="/img/like.png" alt="" />
-                  <span>Yes</span>
-                  <img src="/img/dislike.png" alt="" />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-              <div className="item">
-                <div className="user">
-                  <img
-                    className="pp"
-                    src="https://images.pexels.com/photos/4124367/pexels-photo-4124367.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt=""
-                  />
-                  <div className="info">
-                    <div className="name">
-                      {" "}
-                      <span>Sidney Owen</span>
-                    </div>
-                    <div className="country">
-                      <img
-                        src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png"
-                        alt=""
-                      />
-                      <span>Germany</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="stars">
-                  {star}
-                  {star}
-                  {star}
-                  {star}
-                  {star}
-                  <span>5</span>
-                </div>
-                <p>
-                  The designer took my photo for my book cover to the next
-                  level! Professionalism and ease of working with designer along
-                  with punctuality is above industry standards!! Whatever your
-                  project is, you need this designer!
-                </p>
-                <div className="helpful">
-                  <span>Helpful?</span>
-                  <img src="/img/like.png" alt="" />
-                  <span>Yes</span>
-                  <img src="/img/dislike.png" alt="" />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-              <div className="item">
-                <div className="user">
-                  <img
-                    className="pp"
-                    src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt=""
-                  />
-                  <div className="info">
-                    <div className="name">
-                      <span>Lyle Giles </span>
-                    </div>
-                    <div className="country">
-                      <img
-                        src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png"
-                        alt=""
-                      />
-                      <span>United States</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="stars">
-                  {star}
-                  {star}
-                  {star}
-                  {star}
-                  {star}
-                  <span>5</span>
-                </div>
-                <p>
-                  Amazing work! Communication was amazing, each and every day he
-                  sent me images that I was free to request changes to. They
-                  listened, understood, and delivered above and beyond my
-                  expectations. I absolutely recommend this gig, and know
-                  already that Ill be using it again very very soon
-                </p>
-                <div className="helpful">
-                  <span>Helpful?</span>
-                  <img src="/img/like.png" alt="" />
-                  <span>Yes</span>
-                  <img src="/img/dislike.png" alt="" />
-                  <span>No</span>
-                </div>
-              </div>
-            </div>
+            <Reviews gigId={id} />
           </div>
           <div className="right">
             <div className="price">
@@ -286,18 +143,18 @@ function Gig() {
               description that you give me
             </p>
             <div className="details">
-              <div className="item">
+              <div className="details-item">
                 <img src="/img/clock.png" alt="" />
                 <span>{data.deliveryTime} Days Delivery</span>
               </div>
-              <div className="item">
+              <div className="details-item">
                 <img src="/img/recycle.png" alt="" />
                 <span>{data.revisionNumber} Revisions</span>
               </div>
             </div>
             <div className="features">
               {data.features.map((feature) => (
-                <div className="item" key={feature}>
+                <div className="details-item" key={feature}>
                   {tick}
                   <span>{feature}</span>
                 </div>
