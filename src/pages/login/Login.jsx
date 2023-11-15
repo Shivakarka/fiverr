@@ -7,6 +7,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [showPassword, setShowPassword] = useState(null);
 
   const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ const Login = () => {
       localStorage.setItem("currentUser", JSON.stringify(res.data));
       navigate("/");
     } catch (err) {
-      setError(err.response.data);
+      setError(err?.response?.data);
     }
   }
 
@@ -38,16 +39,26 @@ const Login = () => {
           placeholder="Enter username"
           onChange={(e) => setUsername(e.target.value)}
         />
-
         <label htmlFor="">Password</label>
         <input
           name="password"
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className="checkbox">
+          <label htmlFor="check">Show Password</label>
+          <input
+            id="check"
+            type="checkbox"
+            value={showPassword}
+            onChange={() => setShowPassword((prev) => !prev)}
+          />
+        </div>
         <button type="submit">Login</button>
-        {error ? error.error : null}
+        {error && setTimeout(() => setError(null), 3000) && (
+          <p className="login-error">{error.error}</p>
+        )}
       </form>
     </div>
   );
