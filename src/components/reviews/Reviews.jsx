@@ -16,15 +16,6 @@ const Reviews = ({ gigId }) => {
       }),
   });
 
-  if (data?.length === 0) {
-    return (
-      <div className="reviews">
-        <h2>Reviews</h2>
-        <p style={{ marginTop: "20px" }}>No reviews yet</p>
-      </div>
-    );
-  }
-
   const mutation = useMutation({
     mutationFn: (review) => {
       return newRequest.post("/reviews", review);

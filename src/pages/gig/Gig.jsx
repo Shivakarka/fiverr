@@ -66,7 +66,7 @@ function Gig() {
                   <img className="pp" src={"/img/noavatar.jpg"} alt="" />
                 </div>
                 <div className="user-info">
-                  <span>Anna Bell</span>
+                  <span>{dataUser?.username}</span>
                   <div className="stars">
                     {showStar(data)}
                     <span>
@@ -78,11 +78,13 @@ function Gig() {
                 </div>
               </div>
             )}
-            <Slider slidesToShow={1} arrowsScroll={1} className="slider">
-              {data.images.map((img) => (
-                <img key={img} src={img} alt="" />
-              ))}
-            </Slider>
+            {(
+              <Slider slidesToShow={1} arrowsScroll={1} className="slider">
+                {data?.images?.map((img) => (
+                  <img key={img} src={img} alt="" />
+                ))}
+              </Slider>
+            ) || "No images"}
             <h2>About This Gig</h2>
             <p>{data.desc}</p>
             <div className="seller">

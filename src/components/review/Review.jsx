@@ -34,7 +34,9 @@ const Review = ({ review }) => {
           <div className="stars">
             {Array(review.star)
               .fill()
-              .map((item, i) => star)}
+              .map((item, i) => (
+                <span key={i}>{star}</span>
+              ))}
             <span>{review.star}</span>
           </div>
           <p>{review.desc}</p>
