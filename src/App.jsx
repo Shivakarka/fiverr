@@ -15,6 +15,9 @@ import {
 } from "./pages/index";
 import Footer from "./components/footer/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Pay from "./pages/pay/Pay";
+import Success from "./pages/success/Success";
+import Cancel from "./pages/cancel/Cancel";
 
 function App() {
   const queryClient = new QueryClient();
@@ -75,6 +78,18 @@ function App() {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/pay/:id",
+          element: <Pay />,
+        },
+        {
+          path: "/success",
+          element: <Success />,
+        },
+        {
+          path: "/cancel/:id",
+          element: <Cancel />,
         },
       ],
     },
