@@ -140,10 +140,7 @@ function Gig() {
               <h3>{data.shortTitle}</h3>
               <h2>$ {data.price}</h2>
             </div>
-            <p>
-              I will create a unique high quality AI generated image based on a
-              description that you give me
-            </p>
+            <p>{data.desc}</p>
             <div className="details">
               <div className="details-item">
                 <img src="/img/clock.png" alt="" />
