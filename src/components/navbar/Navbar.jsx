@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, NavLink } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Navbar.scss";
+import { checkSvg } from "../../../svgs";
 
 function Navbar() {
   const [active, setActive] = useState(false);
@@ -35,6 +36,15 @@ function Navbar() {
     }
   };
 
+  const handleExploreClick = () => {
+    const exploreSection = document.getElementById("explore");
+    if (exploreSection) {
+      exploreSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
@@ -45,8 +55,13 @@ function Navbar() {
           <span className="dot">.</span>
         </div>
         <div className={`links ${open ? "open" : ""}`}>
-          <span>Fiverr Business</span>
-          <span>Explore</span>
+          <span style={{ display: "flex", alignContent: "center", gap: "5px" }}>
+            {checkSvg} <span style={{ paddingTop: "3px" }}> Fiverr Pro</span>
+          </span>
+
+          <span onClick={handleExploreClick} style={{ cursor: "pointer" }}>
+            Explore
+          </span>
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
 
@@ -104,32 +119,35 @@ function Navbar() {
         <>
           <hr />
           <div className="menu">
-            <Link className="link menuLink" to="/">
+            <Link className="link menuLink" to="/gigs?cat=graphics-design">
               Graphics & Design
             </Link>
-            <Link className="link menuLink" to="/">
-              Video & Animation
-            </Link>
-            <Link className="link menuLink" to="/">
-              Writing & Translation
-            </Link>
-            <Link className="link menuLink" to="/">
-              AI Services
-            </Link>
-            <Link className="link menuLink" to="/">
-              Digital Marketing
-            </Link>
-            <Link className="link menuLink" to="/">
-              Music & Audio
-            </Link>
-            <Link className="link menuLink" to="/">
+            <Link className="link menuLink" to="/gigs?cat=programming-tech">
               Programming & Tech
             </Link>
-            <Link className="link menuLink" to="/">
+            <Link className="link menuLink" to="/gigs?cat=digital-marketing">
+              Digital Marketing
+            </Link>
+            <Link className="link menuLink" to="/gigs?cat=video-animation">
+              Video & Animation
+            </Link>
+            <Link className="link menuLink" to="/gigs?cat=writing-translation">
+              Writing & Translation
+            </Link>
+            <Link className="link menuLink" to="/gigs?cat=music-audio">
+              Music & Audio
+            </Link>
+            <Link className="link menuLink" to="/gigs?cat=business">
               Business
             </Link>
-            <Link className="link menuLink" to="/">
-              Lifestyle
+            <Link className="link menuLink" to="/gigs?cat=data">
+              Data
+            </Link>
+            <Link className="link menuLink" to="/gigs?cat=photography">
+              Photography
+            </Link>
+            <Link className="link menuLink" to="/gigs?cat=ai-services">
+              AI Services
             </Link>
           </div>
           <hr />

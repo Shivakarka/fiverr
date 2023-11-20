@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Featured.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Featured = () => {
   const [input, setInput] = useState("");
@@ -42,10 +42,18 @@ const Featured = () => {
           </form>
           <div className="popular">
             <span>Popular:</span>
-            <button>Web Design</button>
-            <button>WordPress</button>
-            <button>Logo Design</button>
-            <button>AI Services</button>
+            <Link to="/gigs?cat=graphics-design">
+              <button>Website Design</button>
+            </Link>
+            <Link to="/gigs?cat=programming-tech">
+              <button>WordPress</button>
+            </Link>
+            <Link to="/gigs?cat=graphics-design">
+              <button>Logo Design</button>
+            </Link>
+            <Link to="/gigs?cat=graphics-design">
+              <button>AI Services</button>
+            </Link>
           </div>
         </div>
         <div className="right">

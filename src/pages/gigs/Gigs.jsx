@@ -1,7 +1,7 @@
 import "./Gigs.scss";
 import GigCard from "../../components/gigCard/GigCard";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 
@@ -12,6 +12,13 @@ const Gigs = () => {
   const maxRef = useRef();
 
   const { search } = useLocation();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  let cat = queryParams.get("cat");
+
+  if (cat && cat.includes("-")) {
+    cat = cat.replace(/-/g, " & ").replace(/\b\w/g, (c) => c.toUpperCase());
+  }
 
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["gigs"],
@@ -34,7 +41,7 @@ const Gigs = () => {
 
   useEffect(() => {
     refetch();
-  }, [sort]);
+  }, [sort, cat, search]);
 
   const apply = () => {
     refetch();
@@ -53,12 +60,8 @@ const Gigs = () => {
               />
             </Link>{" "}
           </div>
-          <div>/ Graphics & Design &gt;</div>
+          <div>/ {cat} &gt;</div>
         </span>
-        <h1>AI Artists</h1>
-        <p>
-          Explore the boundaries of art and technology with Liverr's AI artists
-        </p>
         <div className="menu">
           <div className="left">
             <span>Budget</span>
@@ -86,6 +89,11 @@ const Gigs = () => {
           </div>
         </div>
         <div className="cards">
+          {!data?.length && !isLoading && !error && (
+            <h1 style={{ height: "50vh", margin: "3rem auto" }}>
+              No gigs found!
+            </h1>
+          )}
           {isLoading
             ? "loading"
             : error
