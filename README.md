@@ -2,7 +2,7 @@
 
 ## A full stack Fiverr clone built using MERN Stack
 
-Live Link : [Click Here](https://fiverr-clone-sk.netlify.app/)
+Live Link : [Click Here](https://fiverr-clone-sk.vercel.app/)
 
 Backend Repo : https://github.com/Shivakarka/fiverr-backend
 
