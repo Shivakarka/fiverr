@@ -46,7 +46,7 @@
           }
         }
       }
-      .btn {
+      .search-btn {
         width: 70px;
         height: 50px;
         border: none;
@@ -90,13 +90,33 @@
           }
         }
       }
+
+      @media screen and (max-width: 500px) {
+        .popular {
+          display: none;
+        }
+      }
     }
+
+    @media screen and (max-width: 810px) {
+      .left {
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+
     .right {
       margin-left: 90px;
       height: 100%;
       img {
         height: 100%;
         object-fit: contain;
+      }
+    }
+
+    @media screen and (max-width: 810px) {
+      .right {
+        display: none;
       }
     }
   }

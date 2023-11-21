@@ -59,24 +59,34 @@
           color: gray;
         }
       }
-    }
-    .btn {
-      width: 70px;
-      height: 50px;
-      border: none;
-      background-color: #222325;
-      color: white;
-      align-self: flex-end;
-      cursor: pointer;
 
-      &:hover {
-        background-color: #404145;
+      .search-btn {
+        width: 70px;
+        height: 50px;
+        border: none;
+        background-color: #222325;
+        color: white;
+        align-self: flex-end;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #404145;
+        }
+
+        svg {
+          width: 18px;
+          height: 18px;
+          fill: #fff;
+        }
       }
+    }
 
-      svg {
-        width: 18px;
-        height: 18px;
-        fill: #fff;
+    @media screen and (max-width: 768px) {
+      .search {
+        width: 60vw;
+        margin: 0 auto;
+        position: relative;
+        right: 17vw;
       }
     }
 

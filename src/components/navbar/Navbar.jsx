@@ -55,8 +55,8 @@ function Navbar() {
           </Link>
           <span className="dot">.</span>
         </div>
-        {active || pathname !== "/" ? <SearchBar /> : null}
         <div className={`links ${open ? "open" : ""}`}>
+          {active || pathname !== "/" ? <SearchBar /> : null}
           <span style={{ display: "flex", alignContent: "center", gap: "5px" }}>
             {checkSvg} <span style={{ paddingTop: "3px" }}> Fiverr Pro</span>
           </span>

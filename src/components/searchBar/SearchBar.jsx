@@ -17,7 +17,7 @@ const SearchBar = () => {
         placeholder="Search for any service..."
         onChange={(e) => setInput(e.target.value)}
       />
-      <button className="btn" onClick={handleSubmit}>
+      <button className="search-btn" onClick={handleSubmit}>
         {searchIcon}
       </button>
     </form>

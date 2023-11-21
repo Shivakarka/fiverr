@@ -17,4 +17,11 @@
       object-fit: contain;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    .container {
+      max-width: 510px;
+      gap: 23px;
+    }
+  }
 }
