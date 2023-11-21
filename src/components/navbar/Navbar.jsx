@@ -9,7 +9,6 @@ function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-  const [input, setInput] = useState("");
 
   const { pathname } = useLocation();
 
@@ -47,11 +46,6 @@ function Navbar() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate(`/gigs?search=${input}`);
-  };
-
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
@@ -61,20 +55,16 @@ function Navbar() {
           </Link>
           <span className="dot">.</span>
         </div>
-        {active || pathname !== "/" ? (
-          <SearchBar setInput={setInput} handleSubmit={handleSubmit} />
-        ) : null}
+        {active || pathname !== "/" ? <SearchBar /> : null}
         <div className={`links ${open ? "open" : ""}`}>
           <span style={{ display: "flex", alignContent: "center", gap: "5px" }}>
             {checkSvg} <span style={{ paddingTop: "3px" }}> Fiverr Pro</span>
           </span>
-
           <span onClick={handleExploreClick} style={{ cursor: "pointer" }}>
             Explore
           </span>
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
-
           {currentUser ? (
             <div className="user" onClick={() => setOpenMenu(!openMenu)}>
               <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />

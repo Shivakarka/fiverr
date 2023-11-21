@@ -1,17 +1,8 @@
-import { useState } from "react";
 import "./Featured.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
 const Featured = () => {
-  const [input, setInput] = useState("");
-
-  const navigate = useNavigate();
-
-  const handleSubmit = () => {
-    navigate(`/gigs?search=${input}`);
-  };
-
   return (
     <div className="featured">
       <div className="container">
@@ -23,7 +14,7 @@ const Featured = () => {
             </span>{" "}
             service, right away
           </h1>
-          <SearchBar setInput={setInput} handleSubmit={handleSubmit} />
+          <SearchBar />
           <div className="popular">
             <span>Popular:</span>
             <Link to="/gigs?cat=graphics-design">

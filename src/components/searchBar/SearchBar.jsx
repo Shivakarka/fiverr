@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { searchIcon } from "../../../svgs";
-import "./SearchBar.scss";
+import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({ setInput, handleSubmit }) => {
+const SearchBar = () => {
+  const [input, setInput] = useState("");
+
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/gigs?search=${input}`);
+  };
   return (
     <form className="search">
       <input
