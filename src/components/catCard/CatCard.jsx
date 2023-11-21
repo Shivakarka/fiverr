@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./CatCard.scss";
+import "./style.scss";
 
 function CatCard({ card }) {
   return (
