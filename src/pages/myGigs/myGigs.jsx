@@ -33,9 +33,11 @@ function MyGigs() {
   return (
     <div className="myGigs">
       {isLoading ? (
-        "loading"
+        <h1 style={{ height: "40vh", marginTop: "200px" }}>Loading...</h1>
       ) : error ? (
-        "error"
+        <h1 style={{ height: "40vh", marginTop: "200px" }}>
+          An error has occurred: {error?.message}
+        </h1>
       ) : (
         <div className="container">
           <div className="title">
