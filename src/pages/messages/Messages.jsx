@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Messages.scss";
 import moment from "moment";
+import { PulseLoader } from "react-spinners";
 
 const Messages = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -33,9 +34,9 @@ const Messages = () => {
   return (
     <div className="messages">
       {isLoading ? (
-        "loading"
+        <PulseLoader loading={isLoading} color="#1dbf73" />
       ) : error ? (
-        "error"
+        <h1>Error. Something went wrong</h1>
       ) : (
         <div className="container">
           <div className="title">

@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Message.scss";
+import { PulseLoader } from "react-spinners";
 
 const Message = () => {
   const { id } = useParams();
@@ -42,9 +43,9 @@ const Message = () => {
           <Link to="/messages">Messages</Link> {">"}
         </span>
         {isLoading ? (
-          "loading"
+          <PulseLoader loading={isLoading} color="#1dbf73" />
         ) : error ? (
-          "error"
+          <h1>Error. Something went wrong</h1>
         ) : (
           <div className="messages">
             {data.map((m) => (

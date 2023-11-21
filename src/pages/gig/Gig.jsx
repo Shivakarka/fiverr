@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import Reviews from "../../components/reviews/Reviews";
 import showStar from "../../utils/showStars";
+import { PulseLoader } from "react-spinners";
 
 function Gig() {
   const { id } = useParams();
@@ -36,7 +37,7 @@ function Gig() {
   return (
     <div className="gig">
       {isLoading ? (
-        "loading"
+        <PulseLoader loading={isLoading} color="#1dbf73" />
       ) : error ? (
         "Something went wrong!"
       ) : (

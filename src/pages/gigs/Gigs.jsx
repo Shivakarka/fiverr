@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
+import { PulseLoader } from "react-spinners";
 
 const Gigs = () => {
   const [sort, setSort] = useState("sales");
@@ -94,11 +95,13 @@ const Gigs = () => {
               No gigs found!
             </h1>
           )}
-          {isLoading
-            ? "loading"
-            : error
-            ? "Something went wrong!"
-            : data.map((gig) => <GigCard key={gig._id} item={gig} />)}
+          {isLoading ? (
+            <PulseLoader loading={isLoading} color="#1dbf73" />
+          ) : error ? (
+            <h1>Something went wrong!</h1>
+          ) : (
+            data.map((gig) => <GigCard key={gig._id} item={gig} />)
+          )}
         </div>
       </div>
     </div>

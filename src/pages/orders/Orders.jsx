@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Orders.scss";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
+import { PulseLoader } from "react-spinners";
 
 const Orders = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -35,9 +36,9 @@ const Orders = () => {
   return (
     <div className="orders">
       {isLoading ? (
-        "loading"
+        <PulseLoader loading={isLoading} color="#1dbf73" />
       ) : error ? (
-        "error"
+        <h1>Something went wrong</h1>
       ) : (
         <div className="container">
           <div className="title">

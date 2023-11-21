@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { star } from "../../../svgs";
 import "./Review.scss";
 import newRequest from "../../utils/newRequest";
+import { PulseLoader } from "react-spinners";
 
 const Review = ({ review }) => {
   const { isLoading, error, data } = useQuery({
@@ -15,9 +16,9 @@ const Review = ({ review }) => {
   return (
     <div className="review">
       {isLoading ? (
-        () => "loading"
+        <PulseLoader loading={isLoading} color="#1dbf73" />
       ) : error ? (
-        "Something went wrong!"
+        <h1>Something went wrong!</h1>
       ) : (
         <>
           <div className="user">

@@ -3,6 +3,7 @@ import { heart, star } from "../../../svgs";
 import "./GigCard.scss";
 import { Link } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
+import { PulseLoader } from "react-spinners";
 
 const GigCard = ({ item }) => {
   const { isLoading, error, data } = useQuery({
@@ -26,9 +27,9 @@ const GigCard = ({ item }) => {
         </div>
         <div className="info">
           {isLoading ? (
-            "loading"
+            <PulseLoader loading={isLoading} color="#1dbf73" />
           ) : error ? (
-            "Something went wrong!"
+            <h1>Something went wrong!</h1>
           ) : (
             <div className="user">
               <img src={data?.img || "/img/noavatar.jpg"} alt="" />
