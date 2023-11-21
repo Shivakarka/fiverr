@@ -41,7 +41,9 @@ const Register = () => {
     try {
       await newRequest.post("/auth/register", { ...user, img: url });
       setSuccess(true);
-      navigate("/");
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     } catch (error) {
       const err = error.response.data;
       if (err.error.includes("username")) {
@@ -67,7 +69,7 @@ const Register = () => {
             color: "#fff",
           }}
         >
-          <h1>Registration Successful. Redirecting to Home...</h1>
+          <h1>Registration Successful. Redirecting to Login...</h1>
         </div>
       ) : null}
 
