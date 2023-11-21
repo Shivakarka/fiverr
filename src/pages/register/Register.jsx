@@ -16,6 +16,7 @@ const Register = () => {
     isSeller: false,
   });
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const navigate = useNavigate();
 
@@ -39,6 +40,7 @@ const Register = () => {
     const url = await upload(file);
     try {
       await newRequest.post("/auth/register", { ...user, img: url });
+      setSuccess(true);
       navigate("/");
     } catch (error) {
       const err = error.response.data;
@@ -54,6 +56,21 @@ const Register = () => {
 
   return (
     <div className="register">
+      {success ? (
+        <div
+          style={{
+            position: "absolute",
+            top: "18%",
+            backgroundColor: "#1dbf73",
+            padding: "20px",
+            borderRadius: "10px",
+            color: "#fff",
+          }}
+        >
+          <h1>Registration Successful. Redirecting to Home...</h1>
+        </div>
+      ) : null}
+
       <form onSubmit={handleSubmit}>
         <div className={error ? "err" : "hide"}>
           {error ? error.error : null}
