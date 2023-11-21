@@ -39,6 +39,47 @@
       }
     }
 
+    .search {
+      background-color: white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      width: 650px;
+      border: 1px solid lightgrey;
+
+      input {
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        font-size: 18px;
+
+        &::placeholder {
+          color: gray;
+        }
+      }
+    }
+    .btn {
+      width: 70px;
+      height: 50px;
+      border: none;
+      background-color: #222325;
+      color: white;
+      align-self: flex-end;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #404145;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+        fill: #fff;
+      }
+    }
+
     .links {
       display: flex;
       align-items: center;
