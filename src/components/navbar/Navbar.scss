@@ -15,10 +15,16 @@
   }
 
   .container {
-    width: 1400px;
+    width: 73vw;
     display: flex;
     justify-content: space-between;
     padding: 20px 0px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .links {
+      flex-wrap: wrap;
+    }
 
     .logo {
       font-size: 34px;
@@ -46,7 +52,8 @@
       align-items: center;
       justify-content: space-between;
       overflow: hidden;
-      width: 650px;
+      width: 35vw;
+      min-width: 30vw;
       border: 1px solid lightgrey;
 
       input {
@@ -61,7 +68,7 @@
       }
 
       .search-btn {
-        width: 70px;
+        min-width: 70px;
         height: 50px;
         border: none;
         background-color: #222325;
@@ -158,7 +165,7 @@
       @media (max-width: 768px) {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 20px;
         display: none;
 
         &.open {
@@ -186,10 +193,12 @@
   }
 
   .menu {
-    width: 1400px;
+    width: 73vw;
     padding: 10px 0px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     font-weight: 300;
     color: gray;
     font-family: "Montserrat", sans-serif;

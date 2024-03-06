@@ -4,6 +4,7 @@
   justify-content: center;
   background-color: #013914;
   color: #fff;
+  overflow: hidden;
 
   .container {
     width: 1400px;
@@ -115,9 +116,15 @@
       }
     }
 
-    @media screen and (max-width: 810px) {
+    @media screen and (max-width: 1250px) {
       .right {
         display: none;
+      }
+
+      .left {
+        margin: -55px 30px 0;
+        width: auto;
+        min-width: 50%;
       }
     }
   }
