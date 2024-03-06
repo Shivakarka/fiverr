@@ -36,6 +36,13 @@
     flex-direction: column;
     gap: 10px;
 
+    .readMore {
+      color: #3f3f3f;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
     .user {
       display: flex;
       align-items: center;
