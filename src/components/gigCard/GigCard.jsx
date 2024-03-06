@@ -36,12 +36,7 @@ const GigCard = ({ item }) => {
               <span>{data?.username}</span>
             </div>
           )}
-          <p>
-            {item.desc.slice(0, 150)}
-            {item.desc.length > 150 && (
-              <span className="readMore">... read more</span>
-            )}
-          </p>
+          <p>{item.title}</p>
           <div className="star">
             {star}
             <span>
