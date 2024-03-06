@@ -141,7 +141,7 @@ function Gig() {
               <h3>{data.shortTitle}</h3>
               <h2>$ {data.price}</h2>
             </div>
-            <p>{data.desc}</p>
+            <p>{data.shortDesc}</p>
             <div className="details">
               <div className="details-item">
                 <img src="/img/clock.png" alt="" />
