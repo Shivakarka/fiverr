@@ -8,6 +8,10 @@ const SearchBar = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (input === "") {
+      alert("Please enter a search term");
+      return;
+    }
     navigate(`/gigs?search=${input}`);
   };
   return (
