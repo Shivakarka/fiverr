@@ -98,10 +98,19 @@ const Add = () => {
             />
             <label htmlFor="">Category</label>
             <select name="cat" id="cat" onChange={handleChange}>
-              <option value="design">Design</option>
-              <option value="web">Web Development</option>
-              <option value="animation">Animation</option>
-              <option value="music">Music</option>
+              <option value="" selected>
+                Choose a category
+              </option>
+              <option value="graphics-design">Graphics & Design</option>
+              <option value="programming-tech">Web Development</option>
+              <option value="video-animation">Video - Animation</option>
+              <option value="digital-marketing">Digital Marketing</option>
+              <option value="writing-translation">Writing - Translation</option>
+              <option value="music-audio">Music & Audio</option>
+              <option value="business">Business</option>
+              <option value="data">Data</option>
+              <option value="photography">Photography</option>
+              <option value="ai-services">AI services</option>
             </select>
             <div className="images">
               <div className="imagesInputs">
@@ -184,7 +193,7 @@ const Add = () => {
                 </div>
               ))}
             </div>
-            <label htmlFor="">Price</label>
+            <label htmlFor="">Price ($)</label>
             <input type="number" onChange={handleChange} name="price" min={1} />
           </div>
         </div>
