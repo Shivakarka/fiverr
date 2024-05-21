@@ -49,13 +49,15 @@ function MyGigs() {
             )}
           </div>
           <table>
-            <tr>
-              <th>Image</th>
-              <th>Title</th>
-              <th>Price</th>
-              <th>Sales</th>
-              <th>Action</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Sales</th>
+                <th>Action</th>
+              </tr>
+            </thead>
             {data.map((gig) => (
               <tr key={gig._id}>
                 <td>
