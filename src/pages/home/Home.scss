@@ -1,4 +1,5 @@
 .home {
+  overflow-x: hidden;
   .Slides-container {
     width: 1400px;
     position: relative;
@@ -264,5 +265,58 @@
         font: 400 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .features .container {
+    flex-direction: column;
+  }
+
+  .home .explore .container .items {
+    justify-content: center;
+  }
+
+  .explore .container {
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .dark .container .item:last-child img {
+    max-width: 80vw;
+  }
+
+  .home .dark .container {
+    max-width: 80vw;
+  }
+
+  .home .dark .container .item:first-child .features-content {
+    max-width: 70vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .features .container .item {
+    max-width: 70vw;
+  }
+
+  .features .container .item:last-child video,
+  .features .container .item:last-child img {
+    max-width: 80vw;
+  }
+
+  .home .features .container .item picture .play-btn {
+    left: 30vw;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .home .features .container {
+    margin: 0 30px;
+  }
+
+  .explore .container h1 {
+    margin-left: 10px;
   }
 }
