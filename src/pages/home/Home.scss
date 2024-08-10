@@ -294,6 +294,10 @@
   .home .dark .container .item:first-child .features-content {
     max-width: 70vw;
   }
+
+  .inspiring {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 800px) {
